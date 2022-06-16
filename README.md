@@ -12,3 +12,5 @@ Simple HTTP server on Kotlin with Spring Boot
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 
 * https://devmark.ru/article/crud-repository-kotlin
+* https://habr.com/ru/company/epam_systems/blog/572646/
+

@@ -8,7 +8,7 @@ import java.util.*
 @Service
 class BookService(private val books: BookDAO) {
 
-    fun getAll (): Iterable<Book> {
+    fun getAll (): MutableIterable<Book> {
         return books.findAll()
     }
 
@@ -16,29 +16,29 @@ class BookService(private val books: BookDAO) {
         return books.findById(id)
     }
 
-    fun getByName (name: String) : List <Book> {
+    fun getByName (name: String): List<Book> {
         return books.findByOrderByName()
     }
 
-    fun getByAuthor (author: String) : List <Book> {
+    fun getByAuthor (author: String): List<Book> {
         return books.findByOrderByAuthor()
     }
 
-    fun getByGenre (genre: String) : List <Book> {
+    fun getByGenre (genre: String): List<Book> {
         return books.findByOrderByGenre()
     }
 
-    fun add (book : Book) : Book {
-        return books.save(book)
+    fun add (book : Book): Book {
+       return books.save(book)
     }
 
-    fun edit (id : Long, book : Book) : Book {
+    fun edit (id : Long, book : Book): Book {
         return books.save(book.copy(id = id))
     }
 
-    fun deleteById (id: Long) {
-        return books.deleteById(id)
+    fun deleteById (id: Long) = books.deleteById(id)
+
+    fun existById (id: Long): Boolean {
+        return books.existsById(id)
     }
-
-
 }
