@@ -3,7 +3,10 @@ Simple HTTP server on Kotlin with Spring Boot
 
 Простой HTTP сервер написанный на Kotlin при помощи Spring Boot
 
-Database: MySQL
+Java 8
+Database - MySQL
+Spring 2.7.0
+
 # How to start
 
 1. Fill application.properties file (MySql user credentials)
