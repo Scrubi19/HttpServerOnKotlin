@@ -1,9 +1,18 @@
-# HttpServerOnKotlin
+# Http-ServerOnKotlin
 Simple HTTP server on Kotlin with Spring Boot
 
 Простой HTTP сервер написанный на Kotlin при помощи Spring Boot
 
-## Используемые источники:
+Database: MySQL
+# How to start
+
+1. Fill application.properties file (MySql user credentials)
+2. Create database in MySql with name "backend"
+3. ``` mvn clean package ```
+4. run BackendApplication.kt
+5. file ```http-server-kotlin.postman.json``` contains main request for http-server
+
+## Sources:
 
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 
