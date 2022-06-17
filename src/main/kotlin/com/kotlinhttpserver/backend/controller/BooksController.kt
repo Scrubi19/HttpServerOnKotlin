@@ -14,8 +14,15 @@ class BooksController (private val bookService : BookService ) {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     class BookByIdNotFoundException(id: Long): RuntimeException("Book with id = $id not found")
 
+    // POST
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    fun create (@Valid @RequestBody book : Book): Book {
+        return bookService.add(book)
+    }
+
     @GetMapping
-    fun findAll(): MutableIterable<Book> {
+    fun readAll(): MutableIterable<Book> {
         return bookService.getAll()
     }
 
@@ -32,14 +39,19 @@ class BooksController (private val bookService : BookService ) {
     @GetMapping("/name/{name}")
     @ResponseStatus(HttpStatus.FOUND)
     fun readByName (@Valid @PathVariable name: String): List<Book> {
-            println("name: $name")
             return bookService.getByName(name)
     }
-    // POST
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun create (@Valid @RequestBody book : Book): Book {
-        return bookService.add(book)
+
+    @GetMapping("/author/{author}")
+    @ResponseStatus(HttpStatus.FOUND)
+    fun readByAuthor (@Valid @PathVariable author: String): List<Book> {
+        return bookService.getByAuthor(author)
+    }
+
+    @GetMapping("/genre/{genre}")
+    @ResponseStatus(HttpStatus.FOUND)
+    fun readByGenre (@Valid @PathVariable genre: String): List<Book> {
+        return bookService.getByGenre(genre)
     }
 
     // PUT

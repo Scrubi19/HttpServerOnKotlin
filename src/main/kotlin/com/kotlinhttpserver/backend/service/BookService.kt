@@ -17,15 +17,15 @@ class BookService(private val books: BookDAO) {
     }
 
     fun getByName (name: String): List<Book> {
-        return books.findByOrderByName()
+        return books.findByNameContaining(name)
     }
 
     fun getByAuthor (author: String): List<Book> {
-        return books.findByOrderByAuthor()
+        return books.findByAuthorContaining(author)
     }
 
     fun getByGenre (genre: String): List<Book> {
-        return books.findByOrderByGenre()
+        return books.findByGenre(genre)
     }
 
     fun add (book : Book): Book {
